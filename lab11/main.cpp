@@ -24,7 +24,7 @@ int main() {
   int intArr[] = {5, 1, 4, 2, 8};
   int intSize = sizeof(intArr) / sizeof(intArr[0]);
 
-  cout << "До сортировки (int): ";
+  cout << "До (int): ";
   for (int i = 0; i < intSize; i++) {
     cout << intArr[i] << " ";
   }
@@ -32,7 +32,7 @@ int main() {
 
   bubbleSort(intArr, intSize);
 
-  cout << "После сортировки (int): ";
+  cout << "После (int): ";
   for (int i = 0; i < intSize; i++) {
     cout << intArr[i] << " ";
   }
@@ -42,7 +42,7 @@ int main() {
   double doubleArr[] = {3.3, 1.1, 4.4, 2.2, 5.5};
   int doubleSize = sizeof(doubleArr) / sizeof(doubleArr[0]);
 
-  cout << "До сортировки (double): ";
+  cout << "До (double): ";
   for (int i = 0; i < doubleSize; i++) {
     cout << doubleArr[i] << " ";
   }
@@ -50,7 +50,7 @@ int main() {
 
   bubbleSort(doubleArr, doubleSize);
 
-  cout << "После сортировки (double): ";
+  cout << "После (double): ";
   for (int i = 0; i < doubleSize; i++) {
     cout << doubleArr[i] << " ";
   }

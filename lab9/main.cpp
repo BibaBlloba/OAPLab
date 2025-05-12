@@ -6,23 +6,23 @@
 
 using namespace std;
 
-vector<string> splitIntoSentences(const string &text) {
+vector<string> split(const string &text) {
   vector<string> sentences;
-  string currentSentence;
+  string sent1;
 
   for (char ch : text) {
-    currentSentence += ch;
+    sent1 += ch;
 
     if (ch == '.' || ch == '!' || ch == '?') {
-      sentences.push_back(currentSentence);
-      currentSentence.clear();
+      sentences.push_back(sent1);
+      sent1.clear();
     }
   }
 
   return sentences;
 }
 
-bool containsComma(const string &sentence) {
+bool is_comma(const string &sentence) {
   for (char ch : sentence) {
     if (ch == ',') {
       return true;
@@ -44,10 +44,10 @@ int main() {
   }
   inputFile.close();
 
-  vector<string> sentences = splitIntoSentences(text);
+  vector<string> sentences = split(text);
 
   for (const string &sentence : sentences) {
-    if (!containsComma(sentence)) {
+    if (!is_comma(sentence)) {
       cout << sentence << endl;
     }
   }
