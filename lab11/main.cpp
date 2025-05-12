@@ -1,30 +1,34 @@
+#include <cstdlib>
+#include <ctime>
 #include <iostream>
 using namespace std;
 
-template <class T> void bubbleSort(T arr[], int size);
+template <class T> void bubbleSort(T *arrayPtr, int arrSize) {
+  T temp = 0;
+  bool exit = false;
 
-template <class T> void bubbleSort(T arr[], int size) {
-  bool exit;
-  for (int i = 0; i < size - 1; i++) {
-    exit = false;
-    for (int j = 0; j < size - i - 1; j++) {
-      if (arr[j] > arr[j + 1]) {
-        T temp = arr[j];
-        arr[j] = arr[j + 1];
-        arr[j + 1] = temp;
-        exit = true;
+  while (!exit) {
+    exit = true;
+    for (int counter = 0; counter < (arrSize - 1); counter++) {
+      if (arrayPtr[counter] > arrayPtr[counter + 1]) {
+        temp = arrayPtr[counter];
+        arrayPtr[counter] = arrayPtr[counter + 1];
+        arrayPtr[counter + 1] = temp;
+        exit = false;
       }
-    }
-    if (!exit) {
-      break;
     }
   }
 }
 
 int main() {
+  srand(time(0));
+
   // Пример с целыми числами
-  int intArr[] = {5, 1, 4, 2, 8};
-  int intSize = sizeof(intArr) / sizeof(intArr[0]);
+  int intSize = 5;
+  int *intArr = new int[intSize];
+  for (int i = 0; i < intSize; i++) {
+    intArr[i] = rand() % 20;
+  }
 
   cout << "До (int): ";
   for (int i = 0; i < intSize; i++) {
@@ -40,9 +44,14 @@ int main() {
   }
   cout << endl << endl;
 
+  delete[] intArr;
+
   // Пример с дробными числами
-  double doubleArr[] = {3.3, 1.1, 4.4, 2.2, 5.5};
-  int doubleSize = sizeof(doubleArr) / sizeof(doubleArr[0]);
+  int doubleSize = 5;
+  double *doubleArr = new double[doubleSize];
+  for (int i = 0; i < doubleSize; i++) {
+    doubleArr[i] = (rand() % 10000) / 100.0;
+  }
 
   cout << "До (double): ";
   for (int i = 0; i < doubleSize; i++) {
@@ -57,6 +66,8 @@ int main() {
     cout << doubleArr[i] << " ";
   }
   cout << endl;
+
+  delete[] doubleArr;
 
   return 0;
 }
