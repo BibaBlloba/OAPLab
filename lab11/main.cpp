@@ -4,70 +4,65 @@
 using namespace std;
 
 template <class T> void bubbleSort(T *arrayPtr, int arrSize) {
-  T temp = 0;
-  bool exit = false;
-
-  while (!exit) {
-    exit = true;
-    for (int counter = 0; counter < (arrSize - 1); counter++) {
-      if (arrayPtr[counter] > arrayPtr[counter + 1]) {
-        temp = arrayPtr[counter];
-        arrayPtr[counter] = arrayPtr[counter + 1];
-        arrayPtr[counter + 1] = temp;
-        exit = false;
-      }
+    for (int i = 0; i < arrSize - 1; i++) {
+        for (int j = 0; j < arrSize - i - 1; j++) {
+            if (arrayPtr[j] > arrayPtr[j + 1]) {
+                T temp = arrayPtr[j];
+                arrayPtr[j] = arrayPtr[j + 1];
+                arrayPtr[j + 1] = temp;
+            }
+        }
     }
-  }
 }
 
 int main() {
-  srand(time(0));
+    srand(time(0));
 
-  // целые числа
-  int intSize = 5;
-  int *intArr = new int[intSize];
-  for (int i = 0; i < intSize; i++) {
-    intArr[i] = rand() % 20;
-  }
+    // целые числа
+    int intSize = 5;
+    int *intArr = new int[intSize];
+    for (int i = 0; i < intSize; i++) {
+        intArr[i] = rand() % 20;
+    }
 
-  cout << "До (int): ";
-  for (int i = 0; i < intSize; i++) {
-    cout << intArr[i] << " ";
-  }
-  cout << endl;
+    cout << "До (int): ";
+    for (int i = 0; i < intSize; i++) {
+        cout << intArr[i] << " ";
+    }
+    cout << endl;
 
-  bubbleSort(intArr, intSize);
+    bubbleSort(intArr, intSize);
 
-  cout << "После (int): ";
-  for (int i = 0; i < intSize; i++) {
-    cout << intArr[i] << " ";
-  }
-  cout << endl << endl;
+    cout << "После (int): ";
+    for (int i = 0; i < intSize; i++) {
+        cout << intArr[i] << " ";
+    }
+    cout << endl << endl;
 
-  delete[] intArr;
+    delete[] intArr;
 
-  // дробные числ
-  int doubleSize = 5;
-  double *doubleArr = new double[doubleSize];
-  for (int i = 0; i < doubleSize; i++) {
-    doubleArr[i] = (rand() % 10000) / 100.0;
-  }
+    // дробные числа
+    int doubleSize = 5;
+    double *doubleArr = new double[doubleSize];
+    for (int i = 0; i < doubleSize; i++) {
+        doubleArr[i] = (rand() % 10000) / 100.0;
+    }
 
-  cout << "До (double): ";
-  for (int i = 0; i < doubleSize; i++) {
-    cout << doubleArr[i] << " ";
-  }
-  cout << endl;
+    cout << "До (double): ";
+    for (int i = 0; i < doubleSize; i++) {
+        cout << doubleArr[i] << " ";
+    }
+    cout << endl;
 
-  bubbleSort(doubleArr, doubleSize);
+    bubbleSort(doubleArr, doubleSize);
 
-  cout << "После (double): ";
-  for (int i = 0; i < doubleSize; i++) {
-    cout << doubleArr[i] << " ";
-  }
-  cout << endl;
+    cout << "После (double): ";
+    for (int i = 0; i < doubleSize; i++) {
+        cout << doubleArr[i] << " ";
+    }
+    cout << endl;
 
-  delete[] doubleArr;
+    delete[] doubleArr;
 
-  return 0;
+    return 0;
 }

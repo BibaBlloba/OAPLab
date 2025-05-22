@@ -58,21 +58,20 @@ public:
     void display() const {
         cout << "Круг:" << endl;
         cout << "  Центр: (" << x << ", " << y << ")" << endl;
-        cout << "  Радиус (длина отрезка): " << length << endl;
+        cout << "  Радиус: " << length << endl;
         cout << "  Площадь: " << area << endl;
         cout << "  Назначение: " << purpose << endl;
         cout << "  Тип топлива: " << fuelType << endl;
-        cout << "  Тип: " << (isOrbital ? "Орбитальная" : "Межпланетная") << endl;
+        cout << "  Тип: " << (isOrbital ? "тип1" : "тип2") << endl;
     }
 };
 
 int main() {
     Point point(1, 2);
     Segment segment(1, 2, 4, 6);
-    Circle circle(1, 2, 4, 6, "Исследовательский", "Ионный", true);
+    Circle circle(1, 2, 4, 6, "назначение1", "тип2", true);
     
-    cout << "Характеристики объектов:" << endl;
-    cout << "------------------------" << endl;
+    cout << "Характеристики:" << endl;
     point.display();
     cout << endl;
     segment.display();
