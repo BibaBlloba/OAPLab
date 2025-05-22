@@ -23,7 +23,7 @@ template <class T> void bubbleSort(T *arrayPtr, int arrSize) {
 int main() {
   srand(time(0));
 
-  // Пример с целыми числами
+  // целые числа
   int intSize = 5;
   int *intArr = new int[intSize];
   for (int i = 0; i < intSize; i++) {
@@ -46,7 +46,7 @@ int main() {
 
   delete[] intArr;
 
-  // Пример с дробными числами
+  // дробные числ
   int doubleSize = 5;
   double *doubleArr = new double[doubleSize];
   for (int i = 0; i < doubleSize; i++) {

@@ -1,19 +1,22 @@
 #include <iostream>
+#include <time.h>
+#include <random>
 using namespace std;
 
-// Функция для нахождения суммы трех целых чисел
 int calculate(int a, int b, int c) { return a + b + c; }
 
-// Функция для нахождения разности двух чисел
 double calculate(double a, double b) { return a - b; }
 
 int main() {
-  // Вызов функции для трех целых чисел
-  int sum = calculate(5, 3, 7);
+  srand(time(NULL));
+
+  double d1 = 0.0 + (double)rand() / RAND_MAX * (100.0 - 0.0);
+  double d2 = 0.0 + (double)rand() / RAND_MAX * (100.0 - 0.0);
+
+  int sum = calculate(rand() % 100, random() % 100, rand() % 100);
   cout << "Сумма целых чисел: " << sum << endl;
 
-  // Вызов функции для двух вещественных чисел
-  double diff = calculate(9.5, 3.2);
+  double diff = calculate(d1, d2);
   cout << "Разность double чисел: " << diff << endl;
 
   return 0;
